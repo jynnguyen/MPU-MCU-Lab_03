@@ -2,7 +2,8 @@
 
 **School:** Ho Chi Minh City University of Technology (HCMUT)  
 **Student Name:** Nguyen Trong Hieu  
-**Student ID:** 2452333   
+**Student ID:** 2452333
+**Demo link of this project:** https://youtu.be/alXZTC-a9g8   
 
 ---
 
