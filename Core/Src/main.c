@@ -92,7 +92,7 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  setTimerTick(htim2.Init.Period + 1);
+  setTimerTick(htim2.Init.Prescaler, htim2.Init.Period);
   HAL_TIM_Base_Start_IT(&htim2);
 
   setTimer(TIMER_SCAN_7SEG, SCAN_7SEG_TIME);

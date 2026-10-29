@@ -56,7 +56,7 @@ int isTimerExpired(int index)
     return 0;
 }
 
-void setTimerTick(int value)
+void setTimerTick(int psc, int arr)
 {
-	TIMER_TICK = value;
+	TIMER_TICK = (psc + 1) * (arr + 1) / 8000;
 }

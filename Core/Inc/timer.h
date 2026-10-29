@@ -23,6 +23,6 @@ enum TimerID
 void setTimer(int index, int duration_ms);
 void timerRun();
 int isTimerExpired(int index);
-void setTimerTick(int value);
+void setTimerTick(int psc, int arr);
 
 #endif /* INC_TIMER_H_ */
