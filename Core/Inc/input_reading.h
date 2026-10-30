@@ -11,7 +11,7 @@
 // Timer interrupt duration is 10ms, so to pass 1 second,
 // we need to jump to the interrupt service routine 100 times
 #define DURATION_FOR_AUTO_INCREASING 100
-#define SPEED_FOR_INCREASING 		 25
+#define SPEED_FOR_INCREASING 		 50
 #define BUTTON_IS_PRESSED            GPIO_PIN_RESET
 #define BUTTON_IS_RELEASED           GPIO_PIN_SET
 

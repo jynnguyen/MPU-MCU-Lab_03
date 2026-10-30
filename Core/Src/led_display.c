@@ -16,9 +16,6 @@ enum TrafficState trafficState = NS_RED_EW_GREEN;
 
 void updateTrafficLightPins()
 {
-	if(!isDurationValid())
-		return;
-
     switch (trafficState)
     {
         case NS_RED_EW_GREEN:
@@ -42,7 +39,7 @@ void updateTrafficLightPins()
 
 void runTrafficLights()
 {
-    if (!isTimerExpired(TIMER_NORMAL) || !isDurationValid())
+    if (!isTimerExpired(TIMER_NORMAL))
         return;
 
     countdown_NS--;

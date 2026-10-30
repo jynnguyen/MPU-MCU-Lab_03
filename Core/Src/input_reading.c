@@ -28,7 +28,7 @@ static const uint16_t buttonPins[BUTTON_COUNTS] = {BTN_1_Pin, BTN_2_Pin, BTN_3_P
 
 void button_reading()
 {
-    for (char i = 0; i < BUTTON_COUNTS; i++)
+    for (int i = 0; i < BUTTON_COUNTS; i++)
     {
         debounceButtonBuffer2[i] = debounceButtonBuffer1[i];
         debounceButtonBuffer1[i] = HAL_GPIO_ReadPin(GPIOA, buttonPins[i]);

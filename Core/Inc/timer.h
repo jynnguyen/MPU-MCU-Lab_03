@@ -10,7 +10,7 @@
 
 #define NORMAL_TIME 1000
 #define BLINK_TIME 250
-#define SCAN_7SEG_TIME 50
+#define SCAN_7SEG_TIME 100
 
 enum TimerID
 {

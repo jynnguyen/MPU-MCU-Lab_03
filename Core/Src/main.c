@@ -107,6 +107,7 @@ int main(void)
   while (1)
   {
 	 fsm_for_input_processing();
+	 __WFI();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

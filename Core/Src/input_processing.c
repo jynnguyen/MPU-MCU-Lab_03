@@ -82,7 +82,10 @@ void process_mode_2()
 	}
 
 	if (is_button_pressed(BTN_3))
+	{
 	  red_duration = temp_duration;
+	  updateDuration(RED, &red_duration, &amber_duration, &green_duration);
+	}
 }
 void process_mode_3()
 {
@@ -98,7 +101,10 @@ void process_mode_3()
 	}
 
 	if (is_button_pressed(BTN_3))
+	{
 	  amber_duration = temp_duration;
+	  updateDuration(AMBER, &red_duration, &amber_duration, &green_duration);
+	}
 }
 void process_mode_4()
 {
@@ -115,7 +121,10 @@ void process_mode_4()
 	}
 
 	if (is_button_pressed(BTN_3))
+	{
 	  green_duration = temp_duration;
+	  updateDuration(GREEN, &red_duration, &amber_duration, &green_duration);
+	}
 }
 
 enum ModeState getMode()
@@ -129,9 +138,30 @@ int getDuration(LedColor color)
 			color == GREEN ? green_duration:temp_duration);
 }
 
-int isDurationValid()
+void updateDuration(LedColor recentColorChange, int* red, int* amber, int* green)
 {
-	return red_duration == amber_duration + green_duration;
+	int isDurationValid = *red == *amber + *green;
+	if(isDurationValid)
+		return;
+
+	switch(recentColorChange)
+	{
+	case RED:
+		if(!isDurationValid)
+			*green = *red - *amber;
+	break;
+
+	case GREEN:
+	case AMBER:
+		if(!isDurationValid)
+			*red = *green + *amber;
+	break;
+
+	default:
+
+	break;
+
+	}
 }
 
 
