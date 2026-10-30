@@ -8,4 +8,4 @@
 
 ## 📌 Project Overview
 This repository contains source code and Proteus schematic simulations for **Lab 3: Buttons/Switches**.  
-**Demo link of this project:** https://youtu.be/alXZTC-a9g8   
+**Demo link of this project:** https://youtu.be/8RBfYrxHYMM
