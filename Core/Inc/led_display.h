@@ -24,6 +24,7 @@ enum TrafficState
     NS_AMBER_EW_RED
 };
 
+void initTrafficLights();
 void updateTrafficLightPins();
 void runTrafficLights();
 void toggleLEDs(LedColor ledColor);

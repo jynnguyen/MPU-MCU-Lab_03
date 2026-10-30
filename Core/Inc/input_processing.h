@@ -26,6 +26,5 @@ void process_mode_4();
 
 enum ModeState getMode();
 int getDuration(LedColor color);
-void updateDuration(LedColor recentColorChange, int* red, int* amber, int* green);
 
 #endif /* INC_INPUT_PROCESSING_H_ */

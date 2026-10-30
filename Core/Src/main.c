@@ -95,6 +95,7 @@ int main(void)
   setTimerTick(htim2.Init.Prescaler, htim2.Init.Period);
   HAL_TIM_Base_Start_IT(&htim2);
 
+  initTrafficLights();
   setTimer(TIMER_SCAN_7SEG, SCAN_7SEG_TIME);
   setTimer(TIMER_NORMAL, NORMAL_TIME);
   updateTrafficLightPins();

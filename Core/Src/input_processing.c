@@ -11,9 +11,9 @@
 #include "led_display.h"
 #include "timer.h"
 
-int red_duration = 5;
-int amber_duration = 2;
-int green_duration = 3;
+int red_duration = 3;
+int amber_duration = 1;
+int green_duration = 2;
 int temp_duration = 0;
 enum ModeState modeState = MODE_1_NORMAL;
 
@@ -84,7 +84,6 @@ void process_mode_2()
 	if (is_button_pressed(BTN_3))
 	{
 	  red_duration = temp_duration;
-	  updateDuration(RED, &red_duration, &amber_duration, &green_duration);
 	}
 }
 void process_mode_3()
@@ -103,7 +102,6 @@ void process_mode_3()
 	if (is_button_pressed(BTN_3))
 	{
 	  amber_duration = temp_duration;
-	  updateDuration(AMBER, &red_duration, &amber_duration, &green_duration);
 	}
 }
 void process_mode_4()
@@ -113,6 +111,7 @@ void process_mode_4()
 	{
 		modeState = (modeState + 1) % MODE_COUNTS;
 
+		red_duration = green_duration + amber_duration;
 		turnOffAllLeds();
 		resetTrafficState();
 		updateTrafficLightPins();
@@ -123,7 +122,6 @@ void process_mode_4()
 	if (is_button_pressed(BTN_3))
 	{
 	  green_duration = temp_duration;
-	  updateDuration(GREEN, &red_duration, &amber_duration, &green_duration);
 	}
 }
 
@@ -135,33 +133,7 @@ enum ModeState getMode()
 int getDuration(LedColor color)
 {
 	return (color == RED ? red_duration : color == AMBER ? amber_duration :
-			color == GREEN ? green_duration:temp_duration);
-}
-
-void updateDuration(LedColor recentColorChange, int* red, int* amber, int* green)
-{
-	int isDurationValid = *red == *amber + *green;
-	if(isDurationValid)
-		return;
-
-	switch(recentColorChange)
-	{
-	case RED:
-		if(!isDurationValid)
-			*green = *red - *amber;
-	break;
-
-	case GREEN:
-	case AMBER:
-		if(!isDurationValid)
-			*red = *green + *amber;
-	break;
-
-	default:
-
-	break;
-
-	}
+			color == GREEN ? green_duration : temp_duration);
 }
 
 

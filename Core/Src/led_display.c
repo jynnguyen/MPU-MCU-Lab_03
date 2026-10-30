@@ -10,9 +10,15 @@
 #include "timer.h"
 #include "input_processing.h"
 
-int countdown_NS = 5;
-int countdown_EW = 3;
+int countdown_NS = 3;
+int countdown_EW = 2;
 enum TrafficState trafficState = NS_RED_EW_GREEN;
+
+void initTrafficLights()
+{
+	countdown_NS = getDuration(RED);
+	countdown_EW = getDuration(GREEN);
+}
 
 void updateTrafficLightPins()
 {
