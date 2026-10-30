@@ -8,8 +8,8 @@
 #include "main.h"
 #include "input_reading.h"
 
-static int timer_counters[TIMER_COUNTS] = {0};
-static int timer_flags[TIMER_COUNTS] = {0};
+static volatile int timer_counters[TIMER_COUNTS] = {0};
+static volatile int timer_flags[TIMER_COUNTS] = {0};
 static int TIMER_TICK = 10;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)

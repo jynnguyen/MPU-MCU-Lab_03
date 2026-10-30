@@ -16,8 +16,8 @@ static GPIO_PinState debounceButtonBuffer1[BUTTON_COUNTS];
 static GPIO_PinState debounceButtonBuffer2[BUTTON_COUNTS];
 
 // Flag for a button pressed, and pressed more than 1 second
-static uint8_t flagForButtonPress1s[BUTTON_COUNTS];
-static uint8_t flagForButtonPress[BUTTON_COUNTS];
+static volatile uint8_t flagForButtonPress1s[BUTTON_COUNTS] = {0};
+static volatile uint8_t flagForButtonPress[BUTTON_COUNTS] = {0};
 
 // We define counter for automatically increasing the value
 // after the button is pressed more than 1 second
